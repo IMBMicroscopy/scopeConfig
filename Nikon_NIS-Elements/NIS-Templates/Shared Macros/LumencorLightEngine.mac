@@ -1,0 +1,304 @@
+//Last written 2/3/11
+//Works with Elements build 710
+//Version 001
+
+import("piosetup.dll");
+import int fnLucia_setParallelPortAddress(char *strAddress);
+import int fnLucia_setParallelOutputPin(int iPinNumber, int iSet);
+import int fnLucia_pioSetup();
+
+import("LumencorLightEngine.dll");
+import int fnInitLumencorLightEngine(int hClientWin,int bDockable);
+
+#define cR	8
+#define cG	4
+#define cC	2	
+#define cV	1	
+#define cT	12
+#define cB	21
+#define cY	22
+
+#define OPEN  		1
+#define COM_PORT	1
+
+int main()
+{
+	char strOutBuffer[256];
+	int i;
+
+	OpenPort(COM_PORT,9600,8,"N",1);
+
+	Stg_SetShutterState(SHUTTER_AUX1,0);
+
+	WritePortEx(COM_PORT,"W\002\255P",-1,0,strOutBuffer,0);
+	WritePortEx(COM_PORT,"W\003\171P",-1,0,strOutBuffer,0);
+	WritePortEx(COM_PORT,"O\127P",-1,0,strOutBuffer,0);
+
+	//Change Parallel Port Address here
+	fnLucia_setParallelPortAddress("1260");
+	fnElements_SetAllOff();
+	fnInitLumencorLightEngine(0,1);
+
+}
+
+int fnElements_AdjustIntenisty(int nChannels, int nIntenisty)
+{
+	char strOutBuffer[256],strDeviceCommand[256];
+	int nHighNibble,nLowNibble;
+
+	nHighNibble=(nIntenisty&240)/16;
+	nHighNibble=nHighNibble+240;
+	nLowNibble=(nIntenisty&15)*16;
+
+	if(nChannels>=cT)
+	{
+		if(nChannels==cY)
+		{
+			sprintf(strDeviceCommand,"S\024\003\004\%03d\%03dP","nHighNibble,nLowNibble");
+		}
+		if(nChannels==cB)
+		{
+
+			sprintf(strDeviceCommand,"S\026\003\001\%03d\%03dP","nHighNibble,nLowNibble");
+		}
+		if(nChannels==cT)
+		{
+			sprintf(strDeviceCommand,"S\026\003\002\%03d\%03dP","nHighNibble,nLowNibble");	
+		}
+		
+	}
+	else
+	{
+		sprintf(strDeviceCommand,"S\024\003\%03d\%03d\%03dP","nChannels,nHighNibble,nLowNibble");
+	}
+
+	WritePortEx(COM_PORT,strDeviceCommand,-1,0,strOutBuffer,0);
+
+}
+
+int fnElements_RedOn()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(2, 1);
+    else
+      nReturn = fnLucia_setParallelOutputPin(2, 0);
+}
+
+int fnElements_RedOff()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(2, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(2, 1);
+}
+
+int fnElements_GreenOn()
+{
+    int nReturn;
+    
+    fnElements_YellowOff();
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(3, 1);
+    else
+      nReturn = fnLucia_setParallelOutputPin(3, 0);
+}
+
+int fnElements_GreenOff()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(3, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(3, 1);
+}
+
+int fnElements_CyanOn()
+{
+    int nReturn;
+
+   if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(4, 1);
+   else
+      nReturn = fnLucia_setParallelOutputPin(4, 0);
+}
+
+int fnElements_CyanOff()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(4, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(4, 1);
+      
+}
+
+int fnElements_VioletOn()
+{
+    int nReturn;
+
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(5, 1);
+    else
+      nReturn = fnLucia_setParallelOutputPin(5, 0);
+}
+
+int fnElements_VioletOff()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(5, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(5, 1);
+}
+
+int fnElements_TealOn()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(6, 1);
+    else
+      nReturn = fnLucia_setParallelOutputPin(6, 0);
+}
+
+int fnElements_TealOff()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(6, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(6, 1);
+}
+
+int fnElements_BlueOn()
+{
+    int nReturn;
+
+   if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(7, 1);
+   else
+      nReturn = fnLucia_setParallelOutputPin(7, 0);
+}
+
+int fnElements_BlueOff()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(7, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(7, 1);
+}
+
+int fnElements_YellowOn()
+{
+    int nReturn;
+    
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(9, 1);
+    else
+      nReturn = fnLucia_setParallelOutputPin(9, 0);
+
+	fnElements_GreenOn();
+}
+
+int fnElements_YellowOff()
+{
+    int nReturn;
+
+	fnElements_GreenOff();
+
+    if(OPEN)
+      nReturn = fnLucia_setParallelOutputPin(9, 0);
+    else
+      nReturn = fnLucia_setParallelOutputPin(9, 1);
+}
+
+int fnElements_SetLightOn()
+{
+
+	fnElements_SetAllOff();
+
+  
+  	if(GeneralShutterState[SHUTTER_AUX1] == 1)
+	{
+  
+		if (GeneralFilterPosition[FILTER_AUX1] == 0)
+			fnElements_RedOn();
+    
+		if (GeneralFilterPosition[FILTER_AUX1] == 1)
+			fnElements_GreenOn();
+  
+		if (GeneralFilterPosition[FILTER_AUX1] == 2)
+			fnElements_CyanOn();
+  
+		if (GeneralFilterPosition[FILTER_AUX1] == 3)
+			fnElements_VioletOn();
+
+		if (GeneralFilterPosition[FILTER_AUX1] == 4)
+			fnElements_TealOn();
+
+		if (GeneralFilterPosition[FILTER_AUX1] == 5)
+			fnElements_BlueOn();
+
+		if (GeneralFilterPosition[FILTER_AUX1] == 6)
+			fnElements_YellowOn();
+	}
+
+}
+
+int fnElements_SetLightOFF()
+{
+
+	if (GeneralFilterPosition[FILTER_AUX1] == 0)
+		fnElements_RedOff();
+  
+	if (GeneralFilterPosition[FILTER_AUX1] == 1)
+		fnElements_GreenOff();
+  
+	if (GeneralFilterPosition[FILTER_AUX1] == 2)
+	    	fnElements_CyanOff();
+  
+  	if (GeneralFilterPosition[FILTER_AUX1] == 3)
+		fnElements_VioletOff();
+
+	if (GeneralFilterPosition[FILTER_AUX1] == 4)
+		fnElements_TealOff();
+
+	if (GeneralFilterPosition[FILTER_AUX1] == 5)
+		fnElements_BlueOff();
+
+	if (GeneralFilterPosition[FILTER_AUX1] == 6)
+		fnElements_YellowOff();
+}
+
+int fnElements_SetAllOff()
+{
+	fnElements_RedOff();
+	fnElements_GreenOff();
+	fnElements_CyanOff();
+	fnElements_VioletOff();
+	fnElements_TealOff();
+	fnElements_BlueOff();
+	fnElements_YellowOff();
+}
+
+int fnElements_SetAllOn()
+{
+	fnElements_RedOn();
+	fnElements_GreenOn();
+	fnElements_CyanOn();
+	fnElements_VioletOn();
+	fnElements_TealOn();
+	fnElements_BlueOn();
+	fnElements_YellowOn();
+}  

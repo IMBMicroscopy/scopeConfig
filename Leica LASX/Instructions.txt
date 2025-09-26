@@ -1,0 +1,18 @@
+Login to PC as local administrator
+
+Start LASX and configure software as required. Then Close LASX
+
+Copy these paths to the c:Scopeconfig\default settings folder
+
+Check if user folders are configured to c: or d: drive and adjust paths below as required
+
+Copy the Leica folders in the following paths
+
+Copy "c:\Users\%username%\AppData\Roaming\Leica..." to "C:\ScopeConfig\DefaultSettings\Roaming\"
+
+Copy "c:\Users\%username%\AppData\Local\Leica..." to "C:\ScopeConfig\DefaultSettings\Local\"
+
+Check permissions for both of the Default settings directories have read/write for Users
+
+Setup Leica_Settings.bat to run at user login via group policy editor or task scheduler
+Alternatively create a shortcut to run the copy commands and launch LASX after

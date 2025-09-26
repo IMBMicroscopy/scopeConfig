@@ -1,0 +1,39 @@
+[AB_Cache_{52E417BA-11D0-471F-8A76-2D9145F15C96}]
+Cache_ProjSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_TargetSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_MyCompChksum[String] = "edfcbdf00a42e7aade69af1f6b3324ce"
+Cache_GenFile_Count[Integer] = 3
+Cache_GenFile[0][Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/l"
+Cache_GenFile[0][Path] Line0002 = "umencor_on/lumencor_on/lumencor_on.exe"
+Cache_GenFile[1][Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/l"
+Cache_GenFile[1][Path] Line0002 = "umencor_on/lumencor_on/lumencor_on.aliases"
+Cache_GenFile[2][Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/l"
+Cache_GenFile[2][Path] Line0002 = "umencor_on/lumencor_on/lumencor_on.ini"
+Cache_GenGUID_Count[Integer] = 3
+Cache_GenGUID[0][String] = "{5511791C-8C00-4A9C-BB1E-7B8B98CD325F}"
+Cache_GenGUID[1][String] = "{78C6CC6A-0633-40C8-B4E8-07841C3CE5A6}"
+Cache_GenGUID[2][String] = "{B24EC460-CF8B-4848-98D7-965C6FB3FED7}"
+Cache_OutputDir[Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/lu"
+Cache_OutputDir[Path] Line0002 = "mencor_on/lumencor_on"
+
+[AB_Cache_{8380EFBF-9C7B-445D-893D-8D08E2661E6E}]
+Cache_ProjSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_TargetSymbolChksum[String] = "7dea362b3fac8e00956a4952a3d4f474"
+Cache_MyCompChksum[String] = "edfcbdf00a42e7aade69af1f6b3324ce"
+Cache_GenFile_Count[Integer] = 3
+Cache_GenFile[0][Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/l"
+Cache_GenFile[0][Path] Line0002 = "umencor_on/lumencor_on/lumencor_on.exe"
+Cache_GenFile[1][Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/l"
+Cache_GenFile[1][Path] Line0002 = "umencor_on/lumencor_on/lumencor_on.aliases"
+Cache_GenFile[2][Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/l"
+Cache_GenFile[2][Path] Line0002 = "umencor_on/lumencor_on/lumencor_on.ini"
+Cache_GenGUID_Count[Integer] = 3
+Cache_GenGUID[0][String] = "{5511791C-8C00-4A9C-BB1E-7B8B98CD325F}"
+Cache_GenGUID[1][String] = "{78C6CC6A-0633-40C8-B4E8-07841C3CE5A6}"
+Cache_GenGUID[2][String] = "{B24EC460-CF8B-4848-98D7-965C6FB3FED7}"
+Cache_OutputDir[Path] Line0001 = "/C/Users/IMB-NIKON/Desktop/lumencor/builds/lu"
+Cache_OutputDir[Path] Line0002 = "mencor_on/lumencor_on"
+
+[ProjectWindow_Data]
+ProjectExplorer.ClassicPosition[String] = "64,42,464,414"
+

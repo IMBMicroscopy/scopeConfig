@@ -1,0 +1,62 @@
+char  buffer[1000];
+char  filename[256],section[256],path[256],buf[2048];
+int i=0;
+
+//define Open and save filepaths
+Int_GetKeyString("C:\ScopeConfig\userList\currentuser.txt","User","File",buffer,1024);
+
+SetUsedFixPathForFiles(buffer);
+_SetTempFilesPathForNextSession("");
+_SetTempFilesPathForNextSession("");
+
+OpenNext_SourceImages(buffer, 0, "");
+OpenNext_Sort(1, 1, 0);
+OpenNext_SetNum(1);
+
+SaveNext_Images(buffer, 4, "seq", 0);
+SaveNext_ImageInfo(NULL, NULL, NULL, NULL, 0, 0);
+
+//define ND filepaths
+Int_GetKeyString("C:\ScopeConfig\userList\currentuser.txt","User","ND",buffer,1024);
+ND_DefineExperiment(0,0,1,0,0,buffer,"",0,0,0,0);
+ 
+//define Jobs filepath
+Int_GetKeyString("C:\ScopeConfig\userList\currentuser.txt","User","Jobs",buffer,1024);
+Jobs_OpenExistingDb(buffer, 0, 0);
+
+//initialise the hardware
+Stg_SetShutterState(0,0);
+
+Stg_SetShutterState(1,0);
+
+StgZ_Escape();
+
+StgMoveXY(3495,-3591,0); 
+
+StgMovePiezoZToHomeKeepZ();
+
+StgZ_Refocus();
+
+EnableMouseXY(1);
+
+Stg_SetShutterState(0,0);
+
+Stg_SetShutterState(1,0);
+
+EnableZIntensityControl(1);
+
+LUTs_KeepAutoScale(1);
+
+/*
+
+for(i=1; i<=50; i=i+1)
+{
+SelectOptConf(i);
+CameraSet_CaptureQuality(1, 25);
+CameraSet_CaptureMaxExposure(1, 500.000);
+} 
+
+*/
+
+
+

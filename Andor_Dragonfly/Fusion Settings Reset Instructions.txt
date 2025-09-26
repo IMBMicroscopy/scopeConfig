@@ -1,0 +1,18 @@
+Settings back up located in folder:
+
+BackupDisk R:/Latest_Fusion_Settings/
+
+and
+
+C:/ScopeConfig/Fusion User Data
+C:/ScopeConfig/Fusion Global Data
+
+--------------------------------------------------------------
+
+Copy contents of folder to:
+
+C:/Users/<username>/My Documents/Fusion User Data/
+
+C:/Users/Public/Public Documents/
+
+Or double click desktop icon: Reset Fusion Settings

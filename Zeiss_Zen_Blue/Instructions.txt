@@ -1,0 +1,28 @@
+Login to PC as local administrator
+
+Start Zen and configure software 
+
+Create lightpath buttons for each filter cube, all off, colour and mono
+Create camera settings for each camera
+create camera switching file for left and up positions
+create macros for colour and mono camera
+export copies of the default workspace
+
+Close Zen
+
+
+Copy these paths to the c:Scopeconfig\default settings folder
+
+Check if user folders are configured to c: or d: drive and adjust paths below as required
+
+Copy "D:\Users\la.admin\My Documents\Carl Zeiss" to "C:\ScopeConfig\DefaultSettings\Carl Zeiss"
+
+Copy "D:\Users\la.admin\AppData\Roaming\Carl Zeiss" to "C:\ScopeConfig\DefaultSettings\Roaming"
+
+
+Check permissions for both of the Default settings directories have read/write for Users
+
+
+Ensure there are no experiments configured in "c:\Users\public\documents\carl zeiss\zen\templates" and "c:\Users\public\documents\carl zeiss\zen\documents\experiments"
+
+setup Zeiss_Settings.bat to run at user login via group policy editor

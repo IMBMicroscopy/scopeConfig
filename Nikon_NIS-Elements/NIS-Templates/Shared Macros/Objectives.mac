@@ -1,0 +1,8 @@
+// Toolbar Launch Macro Created by ToolbarSetup
+import("ToolbarSetup.dll");
+import int fnElements_LaunchToolbar(char*, long, long, char*, long);
+
+int main()
+{
+    fnElements_LaunchToolbar("Objectives", 10, 1, "Acquisition Controls", 20);
+}

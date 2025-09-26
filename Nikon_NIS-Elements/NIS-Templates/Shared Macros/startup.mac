@@ -1,0 +1,22 @@
+//initialise the hardware
+Stg_SetShutterState(0,0);
+
+Stg_SetShutterState(1,0);
+
+StgZ_Escape();
+
+StgMoveXY(3495,-3591,0); 
+
+StgMovePiezoZToHomeKeepZ();
+
+StgZ_Refocus();
+
+EnableMouseXY(1);
+
+Stg_SetShutterState(0,0);
+
+Stg_SetShutterState(1,0);
+
+LUTs_KeepAutoScale(1);
+
+

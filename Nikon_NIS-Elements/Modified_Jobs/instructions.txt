@@ -1,0 +1,2 @@
+copy these files to overwrite the same files in ProgramFiles/NIS-Elements/JobsTemplates etc if you've modified or reinstalled the software
+
